@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+
+	std::string stroka;
+	char a;
+	bool flag = 0;                                        //флаг 0 -> нет символа 
+
+	std::cout << "Введите символ: \n";                    //ввод
+	std::cin >> a;
+
+	if (isdigit(a) == 0 && isalpha(a) == 0) {             //проверка символа
+		std::cout << "\nОшибка, введён не символ! \n";
+		return 0;
+	}
+
+	std::cout << "\nВведите строку: \n";                  //ввод
+	std::cin >> stroka;
+
+	if (stroka.size() < 2) {                              //проверка строки
+		std::cout << "\nОшибка, введена не строка! \n";
+		return 0;
+	}
+
+	for (int i = 0; i < stroka.size(); i++)
+		if (stroka[i] == a) {
+			flag = 1;                              //как только флаг 1 -> символ найден        
+			std::cout << "\nСимвол найден на " << i + 1 << "-м месте в строке!\n";
+		}
+
+	if (flag == 0)
+		std::cout << "\nНет совпадений" << std::endl;
+
+	return 0;
+} 
